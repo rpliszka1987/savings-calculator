@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import ResetButton from "./ResetButton";
 import Button from "./Button";
 
-function SavingsInput() {
+function SavingsInput(props) {
+  // Setting state for user input state
+  const [currentSavings, setCurrentSavings] = useState("");
+  const [yearlyContribution, setYearlyContribution] = useState("");
+  const [expectedReturn, setExpectedReturn] = useState("");
+  const [duration, setDuration] = useState("");
+
+  
+
+  const formSubmitHandler = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <form className="form">
       <div className="input-group">
@@ -29,7 +41,9 @@ function SavingsInput() {
       </div>
       <p className="actions">
         <ResetButton />
-        <Button />
+
+        {/* Submit button passing down function from App.js */}
+        <Button submitForm={props.submit} />
       </p>
     </form>
   );

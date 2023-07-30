@@ -1,8 +1,9 @@
 import React from "react";
 
-function Button() {
+function Button(props) {
   return (
-    <button type="submit" className="button">
+    // When clicking the button calls the submitForm function
+    <button type="submit" className="button" onClick={props.submitForm}>
       Calculate
     </button>
   );

@@ -1,6 +1,8 @@
 import React from "react";
 
-function SavingsResults() {
+
+
+function SavingsResults(props) {
   return (
     <table className="result">
       <thead>

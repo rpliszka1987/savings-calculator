@@ -37,11 +37,12 @@ function App() {
       <Header />
 
       {/* User input from */}
-      <SavingsInput />
+      <SavingsInput submit={calculateHandler} />
 
       {/* Todo: Show below table conditionally (only once result data is available) */}
       {/* Show fallback text if no data is available */}
 
+      {/* Display user savings results */}
       <SavingsResults />
     </div>
   );
