@@ -25,10 +25,6 @@ function SavingsInput(props) {
     setDuration(event.target.value);
   };
 
-  const formSubmitHandler = (event) => {
-    event.preventDefault();
-  };
-
   return (
     <form className="form">
       <div className="input-group">
