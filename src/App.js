@@ -8,12 +8,15 @@ function App() {
     // Should be triggered when form is submitted
     // You might not directly want to bind it to the submit event on the form though...
 
+    console.log(userInput);
+
     const yearlyData = []; // per-year results
 
-    let currentSavings = +userInput["current-savings"]; // feel free to change the shape of this input object!
-    const yearlyContribution = +userInput["yearly-contribution"]; // as mentioned: feel free to change the shape...
-    const expectedReturn = +userInput["expected-return"] / 100;
-    const duration = +userInput["duration"];
+    // Assigns all the values from the form to appropriate field.
+    let currentSavings = +userInput.saving;
+    const yearlyContribution = +userInput.year;
+    const expectedReturn = +userInput.return / 100;
+    const duration = +userInput.time;
 
     // The below code calculates yearly results (total savings, interest etc)
     for (let i = 0; i < duration; i++) {

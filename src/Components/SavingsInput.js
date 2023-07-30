@@ -25,8 +25,30 @@ function SavingsInput(props) {
     setDuration(event.target.value);
   };
 
+  const formSubmitHandler = (event) => {
+    // Stops default form handling
+    event.preventDefault();
+
+    // Saving all the values in a object
+    const savingData = {
+      saving: currentSavings,
+      year: yearlyContribution,
+      return: expectedReturn,
+      time: duration,
+    };
+
+    // Passing the object back to the main function
+    props.submit(savingData);
+
+    // Clearning all the fields
+    setCurrentSavings("");
+    setYearlyContribution("");
+    setExpectedReturn("");
+    setDuration("");
+  };
+
   return (
-    <form className="form">
+    <form className="form" onSubmit={formSubmitHandler}>
       <div className="input-group">
         <p>
           <label htmlFor="current-savings">Current Savings ($)</label>
