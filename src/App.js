@@ -45,7 +45,7 @@ function App() {
       <SavingsInput submit={calculateHandler} />
 
       {/* Display user savings results */}
-      <SavingsResults />
+      <SavingsResults savingsData={savingsDataOutput} />
     </div>
   );
 }

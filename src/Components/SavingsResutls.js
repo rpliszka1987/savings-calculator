@@ -1,10 +1,12 @@
 import React from "react";
 
 function SavingsResults(props) {
+  // Checks if there is data passed if not displays message
+  if (props.savingsData.length === 0) {
+    return <h2 className="result">No Savings Found</h2>;
+  }
   return (
     <table className="result">
-      {/* Todo: Show below table conditionally (only once result data is available) */}
-      {/* Show fallback text if no data is available */}
       <thead>
         <tr>
           <th>Year</th>
@@ -15,16 +17,21 @@ function SavingsResults(props) {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>YEAR NUMBER</td>
-          <td>TOTAL SAVINGS END OF YEAR</td>
-          <td>INTEREST GAINED IN YEAR</td>
-          <td>TOTAL INTEREST GAINED</td>
-          <td>TOTAL INVESTED CAPITAL</td>
-        </tr>
+        {/* Loops through the data passed in props and outputs to screen */}
+        {props.savingsData.map((item) => (
+          <tr>
+            <td>{item.year}</td>
+            <td>{Math.floor(item.savingsEndOfYear)}</td>
+            <td>{Math.floor(item.yearlyInterest)}</td>
+            <td>{item.yearlyContribution}</td>
+            <td>{Math.floor(item.savingsEndOfYear)}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );
 }
 
 export default SavingsResults;
+
+//
