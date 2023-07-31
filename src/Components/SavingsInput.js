@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ResetButton from "./ResetButton";
 import Button from "./Button";
+import styles from "./SavingsInput.module.css";
 
 function SavingsInput(props) {
   // Setting state for user input state
@@ -55,8 +56,8 @@ function SavingsInput(props) {
   };
 
   return (
-    <form className="form" onSubmit={formSubmitHandler}>
-      <div className="input-group">
+    <form className={styles.form} onSubmit={formSubmitHandler}>
+      <div className={styles["input-group"]}>
         <p>
           <label htmlFor="current-savings">Current Savings ($)</label>
           <input
@@ -76,7 +77,7 @@ function SavingsInput(props) {
           />
         </p>
       </div>
-      <div className="input-group">
+      <div className={styles["input-group"]}>
         <p>
           <label htmlFor="expected-return">
             Expected Interest (%, per year)
@@ -98,7 +99,7 @@ function SavingsInput(props) {
           />
         </p>
       </div>
-      <p className="actions">
+      <p className={styles.actions}>
         <ResetButton clearForm={clearFormHandler} />
 
         {/* Submit button passing down function from App.js */}

@@ -1,12 +1,13 @@
 import React from "react";
+import styles from "./SavingsResults.module.css";
 
 function SavingsResults(props) {
   // Checks if there is data passed if not displays message
   if (props.savingsData.length === 0) {
-    return <h2 className="no-results">No Savings Found</h2>;
+    return <h2 className={styles["no-results"]}>No Savings Found</h2>;
   }
   return (
-    <table className="result">
+    <table className={styles.result}>
       <thead>
         <tr>
           <th>Year</th>
@@ -33,4 +34,3 @@ function SavingsResults(props) {
 }
 
 export default SavingsResults;
-
