@@ -3,7 +3,7 @@ import React from "react";
 function SavingsResults(props) {
   // Checks if there is data passed if not displays message
   if (props.savingsData.length === 0) {
-    return <h2 className="result">No Savings Found</h2>;
+    return <h2 className="no-results">No Savings Found</h2>;
   }
   return (
     <table className="result">
@@ -34,4 +34,3 @@ function SavingsResults(props) {
 
 export default SavingsResults;
 
-//
