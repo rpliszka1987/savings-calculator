@@ -1,10 +1,10 @@
 import React from "react";
 
-
-
 function SavingsResults(props) {
   return (
     <table className="result">
+      {/* Todo: Show below table conditionally (only once result data is available) */}
+      {/* Show fallback text if no data is available */}
       <thead>
         <tr>
           <th>Year</th>

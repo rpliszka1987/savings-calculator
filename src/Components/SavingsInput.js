@@ -47,6 +47,13 @@ function SavingsInput(props) {
     setDuration("");
   };
 
+  const clearFormHandler = () => {
+    setCurrentSavings("");
+    setYearlyContribution("");
+    setExpectedReturn("");
+    setDuration("");
+  };
+
   return (
     <form className="form" onSubmit={formSubmitHandler}>
       <div className="input-group">
@@ -92,7 +99,7 @@ function SavingsInput(props) {
         </p>
       </div>
       <p className="actions">
-        <ResetButton />
+        <ResetButton clearForm={clearFormHandler} />
 
         {/* Submit button passing down function from App.js */}
         <Button submitForm={props.submit} />

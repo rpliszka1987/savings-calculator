@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Components/Header";
 import SavingsInput from "./Components/SavingsInput";
 import SavingsResults from "./Components/SavingsResutls";
 
 function App() {
+  // Setting the state of the savings data
+  const [savingsDataOutput, setSavingsDataOutput] = useState("");
+
   const calculateHandler = (userInput) => {
     // Should be triggered when form is submitted
     // You might not directly want to bind it to the submit event on the form though...
-
-    console.log(userInput);
 
     const yearlyData = []; // per-year results
 
@@ -31,7 +32,8 @@ function App() {
       });
     }
 
-    // do something with yearlyData ...
+    // Setting the state value of the savings data.
+    setSavingsDataOutput(yearlyData);
   };
 
   return (
@@ -41,9 +43,6 @@ function App() {
 
       {/* User input from */}
       <SavingsInput submit={calculateHandler} />
-
-      {/* Todo: Show below table conditionally (only once result data is available) */}
-      {/* Show fallback text if no data is available */}
 
       {/* Display user savings results */}
       <SavingsResults />
