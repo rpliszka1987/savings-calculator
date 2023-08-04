@@ -26,6 +26,10 @@ function SavingsInput(props) {
     setDuration(event.target.value);
   };
 
+  const userInputData = (input, value) => {
+    console.log(input, value);
+  };
+
   const formSubmitHandler = (event) => {
     // Stops default form handling
     event.preventDefault();
@@ -63,8 +67,9 @@ function SavingsInput(props) {
           <input
             type="number"
             id="current-savings"
-            value={currentSavings}
-            onChange={currentSavingsHandler}
+            onChange={(event) =>
+              userInputData("current-savings", event.target.value)
+            }
           />
         </p>
         <p>
@@ -72,8 +77,9 @@ function SavingsInput(props) {
           <input
             type="number"
             id="yearly-contribution"
-            value={yearlyContribution}
-            onChange={currentContributionHandler}
+            onChange={(event) =>
+              userInputData("yearly-contribution", event.target.value)
+            }
           />
         </p>
       </div>
@@ -85,8 +91,9 @@ function SavingsInput(props) {
           <input
             type="number"
             id="expected-return"
-            value={expectedReturn}
-            onChange={expectedReturnHandler}
+            onChange={(event) =>
+              userInputData("expected-return", event.target.value)
+            }
           />
         </p>
         <p>
@@ -94,8 +101,7 @@ function SavingsInput(props) {
           <input
             type="number"
             id="duration"
-            value={duration}
-            onChange={durationHandler}
+            onChange={(event) => userInputData("duration", event.target.value)}
           />
         </p>
       </div>
