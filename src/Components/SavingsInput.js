@@ -10,22 +10,6 @@ function SavingsInput(props) {
   const [expectedReturn, setExpectedReturn] = useState("");
   const [duration, setDuration] = useState("");
 
-  const currentSavingsHandler = (event) => {
-    setCurrentSavings(event.target.value);
-  };
-
-  const currentContributionHandler = (event) => {
-    setYearlyContribution(event.target.value);
-  };
-
-  const expectedReturnHandler = (event) => {
-    setExpectedReturn(event.target.value);
-  };
-
-  const durationHandler = (event) => {
-    setDuration(event.target.value);
-  };
-
   const userInputData = (input, value) => {
     console.log(input, value);
   };
