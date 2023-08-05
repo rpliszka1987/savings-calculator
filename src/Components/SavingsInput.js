@@ -3,44 +3,38 @@ import ResetButton from "./ResetButton";
 import Button from "./Button";
 import styles from "./SavingsInput.module.css";
 
+const initialUserInput = {
+  "current-savings": 10000,
+  "yearly-contribution": 1200,
+  "expected-return": 7,
+  duration: 10,
+};
+
 function SavingsInput(props) {
   // Setting state for user input state
-  const [currentSavings, setCurrentSavings] = useState("");
-  const [yearlyContribution, setYearlyContribution] = useState("");
-  const [expectedReturn, setExpectedReturn] = useState("");
-  const [duration, setDuration] = useState("");
+  const [userInput, setUserInput] = useState(initialUserInput);
 
   const userInputData = (input, value) => {
-    console.log(input, value);
+    setUserInput((prevInput) => {
+      return {
+        // Copy previous state
+        ...prevInput,
+        // sets new value fro object property
+        [input]: value,
+      };
+    });
   };
 
   const formSubmitHandler = (event) => {
     // Stops default form handling
     event.preventDefault();
 
-    // Saving all the values in a object
-    const savingData = {
-      saving: currentSavings,
-      year: yearlyContribution,
-      return: expectedReturn,
-      time: duration,
-    };
-
-    // Passing the object back to the main function
-    props.submit(savingData);
-
-    // Clearning all the fields
-    setCurrentSavings("");
-    setYearlyContribution("");
-    setExpectedReturn("");
-    setDuration("");
+    console.log("SUBMIT");
   };
 
+  // Clears all the forms input data
   const clearFormHandler = () => {
-    setCurrentSavings("");
-    setYearlyContribution("");
-    setExpectedReturn("");
-    setDuration("");
+    setUserInput(initialUserInput);
   };
 
   return (
@@ -51,6 +45,7 @@ function SavingsInput(props) {
           <input
             type="number"
             id="current-savings"
+            value={userInput["current-savings"]}
             onChange={(event) =>
               userInputData("current-savings", event.target.value)
             }
@@ -61,6 +56,7 @@ function SavingsInput(props) {
           <input
             type="number"
             id="yearly-contribution"
+            value={userInput["yearly-contribution"]}
             onChange={(event) =>
               userInputData("yearly-contribution", event.target.value)
             }
@@ -75,6 +71,7 @@ function SavingsInput(props) {
           <input
             type="number"
             id="expected-return"
+            value={userInput["expected-return"]}
             onChange={(event) =>
               userInputData("expected-return", event.target.value)
             }
@@ -85,6 +82,7 @@ function SavingsInput(props) {
           <input
             type="number"
             id="duration"
+            value={userInput.duration}
             onChange={(event) => userInputData("duration", event.target.value)}
           />
         </p>
