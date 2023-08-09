@@ -20,7 +20,7 @@ function SavingsInput(props) {
         // Copy previous state
         ...prevInput,
         // sets new value fro object property
-        [input]: value,
+        [input]: +value,
       };
     });
   };
