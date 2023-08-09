@@ -29,7 +29,7 @@ function SavingsInput(props) {
     // Stops default form handling
     event.preventDefault();
 
-    console.log("SUBMIT");
+    props.onSubmit(userInput);
   };
 
   // Clears all the forms input data
