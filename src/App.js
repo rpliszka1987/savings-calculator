@@ -38,10 +38,16 @@ function App() {
       {/* User input from */}
       <SavingsInput onSubmit={calculateHandler} />
 
+      {/* Renders a message is there is no user input. */}
       {!userInput && <p>No investment calculated yet.</p>}
 
       {/* Display user savings results */}
-      {userInput && <SavingsResults />}
+      {userInput && (
+        <SavingsResults
+          data={yearlyData}
+          initialInvestment={userInput["current-savings"]}
+        />
+      )}
     </div>
   );
 }
