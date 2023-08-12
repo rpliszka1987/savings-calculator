@@ -5,12 +5,14 @@ import SavingsResults from "./Components/SavingsResutls";
 
 function App() {
   // Setting the state of the savings data
-  const [savingsDataOutput, setSavingsDataOutput] = useState("");
-
+  const [userInput, setUserInput] = useState(null);
 
   const calculateHandler = (userInput) => {
-    const yearlyData = [];
+    setUserInput(userInput);
+  };
+  const yearlyData = [];
 
+  if (userInput) {
     let currentSavings = +userInput["current-savings"];
     const yearlyContribution = +userInput["yearly-contribution"];
     const expectedReturn = +userInput["expected-return"] / 100;
@@ -26,10 +28,7 @@ function App() {
         yearlyContribution: yearlyContribution,
       });
     }
-
-    // Setting the state value of the savings data.
-    setSavingsDataOutput(yearlyData);
-  };
+  }
 
   return (
     <div>
@@ -39,8 +38,10 @@ function App() {
       {/* User input from */}
       <SavingsInput onSubmit={calculateHandler} />
 
+      {!userInput && <p>No investment calculated yet.</p>}
+
       {/* Display user savings results */}
-      <SavingsResults savingsData={savingsDataOutput} />
+      {userInput && <SavingsResults />}
     </div>
   );
 }

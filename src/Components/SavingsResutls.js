@@ -2,10 +2,7 @@ import React from "react";
 import styles from "./SavingsResults.module.css";
 
 function SavingsResults(props) {
-  // Checks if there is data passed if not displays message
-  if (props.savingsData.length === 0) {
-    return <h2 className={styles["no-results"]}>No Savings Found</h2>;
-  }
+ 
   return (
     <table className={styles.result}>
       <thead>
@@ -19,15 +16,15 @@ function SavingsResults(props) {
       </thead>
       <tbody>
         {/* Loops through the data passed in props and outputs to screen */}
-        {props.savingsData.map((item) => (
+        {/* {props.savingsData.map((item) => (
           <tr>
             <td>{item.year}</td>
-            <td>{Math.floor(item.savingsEndOfYear)}</td>
-            <td>{Math.floor(item.yearlyInterest)}</td>
-            <td>{item.yearlyContribution}</td>
-            <td>{Math.floor(item.savingsEndOfYear)}</td>
+            <td>$ {Math.floor(item.savingsEndOfYear)}</td>
+            <td>$ {Math.floor(item.yearlyInterest)}</td>
+            <td>$ {item.yearlyContribution}</td>
+            <td>$ {Math.floor(item.savingsEndOfYear)}</td>
           </tr>
-        ))}
+        ))} */}
       </tbody>
     </table>
   );
