@@ -39,7 +39,9 @@ function App() {
       <SavingsInput onSubmit={calculateHandler} />
 
       {/* Renders a message is there is no user input. */}
-      {!userInput && <p>No investment calculated yet.</p>}
+      {!userInput && (
+        <p style={{ textAlign: "center" }}>No investment calculated yet.</p>
+      )}
 
       {/* Display user savings results */}
       {userInput && (
